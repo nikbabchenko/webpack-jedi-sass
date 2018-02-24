@@ -1,6 +1,12 @@
-# Webpack Jedi - Webpack Sass/ES6/PUG(optional - on branch `jade`)
+# Webpack Jedi - Webpack Sass/ES6/Pug (optional - on branch `jade`)
 
-Light and strong.
+Light and strong webpack sass pug es6 boilerplate
+
+Perfectly works for small projects with many pages and modern tech.
+Fast start for your project.
+
+Added `slick` and `jQuery` in demostration puprposes.
+Really hope you will not need them.
 
 ## What works for you there
 * [Webpack 3](https://webpack.js.org/guides/getting-started/)
@@ -13,7 +19,8 @@ Light and strong.
 * [BrowserSync](https://www.browsersync.io/) - *Time-saving synchronised browser testing.* (Optional)
   * Tunnel - *Make your website online through a random Public URL*
 * [ESLint](http://eslint.org/) - *The pluggable linting utility for JavaScript and JSX*
-* [PUG] (https://pugjs.org/api/getting-started.html) - *Temlate engine* (branch - *jade*)
+* [PUG](https://pugjs.org/api/getting-started.html) - *Temlate engine* (branch - *jade*)
+* [Autoprefixer](https://autoprefixer.github.io) - Works with your sass well
 
 ## Don't hesitate to make pull request
 ![jedi](https://drive.google.com/uc?id=1pKxuokh_XEmkA3-Pdb3HOvrqPVMHWkPN)
@@ -56,7 +63,6 @@ entry: {
 ```
 
 Jedi work will start from http://localhost:3001
-
 
 ### Different HTML Files, same JS file
 You also can have HTML files that use the same JS file:
