@@ -1,0 +1,47 @@
+@import 'fonts';
+@import 'variables';
+@import '~reset.scss/reset';
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+
+.main {
+    padding: 4rem;
+    font-family: $main-font;
+
+    &__title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    &__slider {
+        max-width: 800px;
+        margin: 4rem auto;
+    }
+
+    &__slider-item {
+        vertical-align: center;
+    }
+
+    &__image {
+        display: inline-block;
+        max-width: 100%;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    &__footer {
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+    &__link {
+        text-decoration: underline;
+        color: $black;
+        font-size: 1.5rem;
+
+        &:hover {
+            color: $link-blue;
+        }
+    }
+}

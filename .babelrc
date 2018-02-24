@@ -1,0 +1,17 @@
+{
+  "ignore": [],
+  "env": {
+    "test": {
+      "presets": ["es2015"],
+      "plugins": ["lodash"]
+    },
+    "production": {
+      "presets": [["es2015", { "modules": false }]],
+      "plugins": ["lodash"]
+    },
+    "dev": {
+      "presets": [["es2015", { "modules": false }]],
+      "plugins": ["lodash"]
+    }
+  }
+}
