@@ -1,6 +1,6 @@
 # Webpack Jedi - Webpack Sass/ES6/PUG(optional - on branch `jade`)
 
-A super minimal and basic boilerplate that I use as starter-kit on my personal projects! 😎
+Fast, stable and clean
 
 ## What is rocking here
 * [Webpack 3](https://webpack.js.org/guides/getting-started/)
