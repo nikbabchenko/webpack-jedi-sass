@@ -9,6 +9,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const projectDir = path.resolve(`${__dirname}/..`);
+const srcPath = path.resolve(`${__dirname}/../src`);
 const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -164,12 +165,12 @@ const config = {
         // YOUR PROJECT PAGES
         new HtmlWebpackPlugin({
             chunks: ['index'],
-            template: `!!pug-loader!${path.join(`${__dirname}/../src`, 'index.pug')}`,
+            template: path.join(srcPath, 'index.pug'),
         }),
 
         new HtmlWebpackPlugin({
             chunks: ['contact-us'],
-            template: `!!pug-loader!${path.join(`${__dirname}/../src`, './pages/contact-us.pug')}`,
+            template: path.join(srcPath, './pages/contact-us.pug'),
             filename: 'contact-us.html'
         }),
         new LodashModuleReplacementPlugin,
