@@ -1,26 +1,34 @@
-# Essential Webpack 3 + PostCSS boilerplate
+# Webpack Jedi - Webpack Sass/ES6/Pug (optional - on branch `jade`)
 
-A super minimal and basic boilerplate that I use as starter-kit on my personal projects! 😎
+Light and strong webpack sass pug es6 boilerplate
 
-## What is rocking here
+Perfectly works for small projects with many pages and modern tech.
+Fast start for your project.
+
+Added `slick` and `jQuery` in demostration puprposes.
+Really hope you will not need them.
+
+## What works for you there
 * [Webpack 3](https://webpack.js.org/guides/getting-started/)
   * [tree-shaking](https://webpack.js.org/guides/tree-shaking/)
   * [file-loader](https://github.com/webpack-contrib/file-loader)
 
 
-### Extras
+### Additional
 * [Babel](https://babeljs.io/) - *Use next generation JavaScript, today.*
-* [BrowserSync](https://www.browsersync.io/) - *Time-saving synchronised browser testing.*
+* [BrowserSync](https://www.browsersync.io/) - *Time-saving synchronised browser testing.* (Optional)
   * Tunnel - *Make your website online through a random Public URL*
 * [ESLint](http://eslint.org/) - *The pluggable linting utility for JavaScript and JSX*
-* [StyleLint](https://stylelint.io/) - *A mighty, modern CSS linter and fixer in your stylesheets.*
+* [PUG](https://pugjs.org/api/getting-started.html) - *Temlate engine* (branch - *jade*)
+* [Autoprefixer](https://autoprefixer.github.io) - Works with your sass well
+
+## Don't hesitate to make pull request
+![jedi](https://drive.google.com/uc?id=1pKxuokh_XEmkA3-Pdb3HOvrqPVMHWkPN)
 
 ## How to Add Multiple files
 This boilerplate is set for only 1 page: `index.html` but is easy to add more pages. You just need to add the HTML and JS files to `config/webpack.config.js`:
 
 ### Add HTML file
-- On `line 83` you have all your project Pages. Each `new HtmlWebpackPlugin` is used to create a new page.
-
 ```js
 // YOUR PROJECT PAGES
 new HtmlWebpackPlugin({
@@ -56,7 +64,6 @@ entry: {
 
 Jedi work will start from http://localhost:3001
 
-
 ### Different HTML Files, same JS file
 You also can have HTML files that use the same JS file:
 ```js
@@ -69,5 +76,3 @@ new HtmlWebpackPlugin({
     template: './my-page.html',
 }),
 ```
-
-You can use PUG instead of html. Try it on branch `jade`
