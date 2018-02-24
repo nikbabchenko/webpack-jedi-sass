@@ -54,7 +54,7 @@ entry: {
 },
 ```
 
-That's it! Save the file, `npm start` again and keep rocking at http://localhost:3001/my-page.html
+Jedi work will start from http://localhost:3001
 
 
 ### Different HTML Files, same JS file
