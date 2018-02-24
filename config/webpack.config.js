@@ -9,16 +9,61 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const projectDir = path.resolve(`${__dirname}/..`);
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV !== 'production';
+const prod = process.env.NODE_ENV === 'production';
+const isBrowserSync = process.env.browsersync === 'true';
+/**
+ *  Settings chapter
+ */
+
+const additionalPlugins = [];
+
+/**
+ * UglifyJS only in prod mode
+ */
+if (prod) {
+    additionalPlugins.push(
+        new UglifyJSPlugin({
+            test: /\.js($|\?)/i,
+            parallel: true,
+            sourceMap: isDev,
+            uglifyOptions: {
+                mangle: true
+            }
+        }));
+}
 
 // Set a random Public URL to share your website with anyone
 // Or you can use a custom URL "http://mysuperwebsite.localtunnel.me"
 // const tunnel = 'mysuperwebsite';
 const tunnel = false;
 
+/**
+ * Browsercync only if needed
+ */
+if (isBrowserSync) {
+    additionalPlugins.push(
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 8288,
+            proxy: 'http://localhost:3000/',
+            ghostMode: { // Disable interaction features between different browsers
+                clicks: false,
+                forms: false,
+                scroll: false
+            },
+            tunnel,
+        }, {
+            // prevent BrowserSync from reloading the page
+            // and let Webpack Dev Server take care of this
+            reload: false
+        })
+    );
+}
+
 console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log(process.env);
 
 const config = {
     context: projectDir + '/src',
@@ -100,6 +145,11 @@ const config = {
         port: 3000
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production') // default value if not specified
+            }
+        }),
         new ExtractTextPlugin('[name].[contenthash:base64:5].css'),
         new CleanWebpackPlugin(['build/'], {
             root: projectDir
@@ -116,56 +166,23 @@ const config = {
             template: './pages/contact-us.html',
             filename: 'contact-us.html'
         }),
-        // new HtmlWebpackPlugin({
-        //     chunks: ['about-us'],
-        //     template: './about-us.html',
-        //     filename: 'about-us.html'
-        // }),
-        // new HtmlWebpackPlugin({
-        //     chunks: ['index'],
-        //     template: './coming-soon.html',
-        //     filename: 'coming-soon.html'
-        // }),
         new LodashModuleReplacementPlugin,
-        new UglifyJSPlugin({
-            mangle: true,
-            compress: {
-                warnings: false,
-                drop_console: !isDev,
-                drop_debugger: !isDev,
-                screw_ie8: true,
-            },
-        }),
         new CopyWebpackPlugin([
             {
-                "context": "../src",
-                "to": "",
-                "from": {
-                    "glob": "assets/img/**/*",
-                    "dot": true
+                'context': '../src',
+                'to': '',
+                'from': {
+                    'glob': 'assets/img/**/*',
+                    'dot': true
                 }
             },
         ], {
-                "ignore": [
-                    ".gitkeep"
-                ],
-                "debug": "warning"
-            }),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 8288,
-            proxy: 'http://localhost:3000/',
-            ghostMode: { // Disable interaction features between different browsers
-                clicks: false,
-                forms: false,
-                scroll: false
-            },
-            tunnel,
-        }, {
-            // prevent BrowserSync from reloading the page
-            // and let Webpack Dev Server take care of this
-            reload: false
-        })
+            'ignore': [
+                '.gitkeep'
+            ],
+            'debug': 'warning'
+        }),
+        ...additionalPlugins
     ]
 };
 

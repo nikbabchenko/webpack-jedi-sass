@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`test logWorld() return greeting sentence 1`] = `"Wello Sandrina!"`;

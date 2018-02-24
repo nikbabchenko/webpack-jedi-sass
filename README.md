@@ -1,25 +1,27 @@
 # Webpack Jedi - Webpack Sass/ES6/PUG(optional - on branch `jade`)
 
-Fast, stable and clean
+Light and strong.
 
-## What is rocking here
+## What works for you there
 * [Webpack 3](https://webpack.js.org/guides/getting-started/)
   * [tree-shaking](https://webpack.js.org/guides/tree-shaking/)
   * [file-loader](https://github.com/webpack-contrib/file-loader)
 
 
-### Extras
+### Additional
 * [Babel](https://babeljs.io/) - *Use next generation JavaScript, today.*
-* [BrowserSync](https://www.browsersync.io/) - *Time-saving synchronised browser testing.*
+* [BrowserSync](https://www.browsersync.io/) - *Time-saving synchronised browser testing.* (Optional)
   * Tunnel - *Make your website online through a random Public URL*
 * [ESLint](http://eslint.org/) - *The pluggable linting utility for JavaScript and JSX*
+* [PUG] (https://pugjs.org/api/getting-started.html) - *Temlate engine* (branch - *jade*)
+
+## Don't hesitate to make pull request
+![jedi](https://drive.google.com/uc?id=1pKxuokh_XEmkA3-Pdb3HOvrqPVMHWkPN)
 
 ## How to Add Multiple files
 This boilerplate is set for only 1 page: `index.html` but is easy to add more pages. You just need to add the HTML and JS files to `config/webpack.config.js`:
 
 ### Add HTML file
-- On `line 83` you have all your project Pages. Each `new HtmlWebpackPlugin` is used to create a new page.
-
 ```js
 // YOUR PROJECT PAGES
 new HtmlWebpackPlugin({
@@ -68,5 +70,3 @@ new HtmlWebpackPlugin({
     template: './my-page.html',
 }),
 ```
-
-You can use PUG instead of html. Try it on branch `jade`
