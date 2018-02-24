@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Home
+  body
+    section.main
+      h1.main__title
+        | Hello, Webpack!
+      main.main__slider
+        .main__slider-item
+          img.main__image(src=require('./assets/img/webpack.png'), alt='Hello Webpack')
+        .main__slider-item
+          img.main__image(src=require('./assets/img/js.png'), alt='Hello Webpack')
+        .main__slider-item
+          img.main__image(src=require('./assets/img/babel.png'), alt='Hello Webpack')
+      footer.main__footer
+        a.main__link(href='contact-us.html') Contact us

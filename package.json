@@ -36,6 +36,7 @@
     "postcss-loader": "^2.0.8",
     "postcss-mixins": "^6.2.0",
     "postcss-nested": "^2.1.2",
+    "pug-loader": "^2.3.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "stylelint": "8.x.x",
@@ -46,6 +47,7 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "lodash": "^4.17.4",
+    "pug": "^2.0.0-rc.4",
     "reset.scss": "^1.0.0",
     "slick-carousel": "^1.8.1"
   }

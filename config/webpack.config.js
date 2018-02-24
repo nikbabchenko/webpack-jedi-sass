@@ -10,7 +10,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 const projectDir = path.resolve(`${__dirname}/..`);
-
+const srcFolder = path.resolve('../src');
 const isDev = process.env.NODE_ENV !== 'production';
 
 // Set a random Public URL to share your website with anyone
@@ -91,6 +91,12 @@ const config = {
                 use: {
                     loader: 'html-loader',
                 }
+            },
+            {
+                test: /\.(pug)$/,
+                use: {
+                    loader: 'pug-loader',
+                }
             }
         ]
     },
@@ -108,12 +114,12 @@ const config = {
         // YOUR PROJECT PAGES
         new HtmlWebpackPlugin({
             chunks: ['index'],
-            template: './index.html',
+            template: `!!pug-loader!${path.join(`${__dirname}/../src`, 'index.pug')}`,
         }),
 
         new HtmlWebpackPlugin({
             chunks: ['contact-us'],
-            template: './pages/contact-us.html',
+            template: `!!pug-loader!${path.join(`${__dirname}/../src`, './pages/contact-us.pug')}`,
             filename: 'contact-us.html'
         }),
         // new HtmlWebpackPlugin({
