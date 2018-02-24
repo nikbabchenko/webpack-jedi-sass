@@ -1,16 +1,14 @@
 /* global process, __dirname, module */
 const postcssConfig = './config/postcss/postcss.config.js';
-
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const projectDir = path.resolve(`${__dirname}/..`);
-const srcFolder = path.resolve('../src');
 const isDev = process.env.NODE_ENV !== 'production';
 
 // Set a random Public URL to share your website with anyone
@@ -19,6 +17,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 const tunnel = false;
 
 console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log(process.env);
 
 const config = {
     context: projectDir + '/src',
@@ -83,7 +82,7 @@ const config = {
                 })
             },
             {
-                test: /\.(png|jpg|gif|woff|woff2|eot|otf|ttf|svg)$/,
+                test: /\.(png|jpeg|jpg|gif|woff|woff2|eot|otf|ttf|svg)$/,
                 use: 'file-loader?name=assets/[name].[ext]',
             },
             {
@@ -142,6 +141,21 @@ const config = {
                 screw_ie8: true,
             },
         }),
+        new CopyWebpackPlugin([
+            {
+                "context": "../src",
+                "to": "",
+                "from": {
+                    "glob": "assets/img/**/*",
+                    "dot": true
+                }
+            },
+        ], {
+                "ignore": [
+                    ".gitkeep"
+                ],
+                "debug": "warning"
+            }),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 8288,
