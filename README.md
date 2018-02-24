@@ -1,4 +1,4 @@
-# Essential Webpack 3 + PostCSS boilerplate
+# Webpack Jedi - Webpack Sass/ES6/PUG(optional - on branch `jade`)
 
 A super minimal and basic boilerplate that I use as starter-kit on my personal projects! 😎
 
@@ -13,7 +13,6 @@ A super minimal and basic boilerplate that I use as starter-kit on my personal p
 * [BrowserSync](https://www.browsersync.io/) - *Time-saving synchronised browser testing.*
   * Tunnel - *Make your website online through a random Public URL*
 * [ESLint](http://eslint.org/) - *The pluggable linting utility for JavaScript and JSX*
-* [StyleLint](https://stylelint.io/) - *A mighty, modern CSS linter and fixer in your stylesheets.*
 
 ## How to Add Multiple files
 This boilerplate is set for only 1 page: `index.html` but is easy to add more pages. You just need to add the HTML and JS files to `config/webpack.config.js`:
