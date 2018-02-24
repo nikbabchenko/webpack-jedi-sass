@@ -1,4 +1,4 @@
-# Webpack Jedi - Webpack Sass/ES6/Pug (optional - on branch `jade`)
+# Webpack Jedi - Webpack SASS ES6 HTML/PUG
 
 Light and strong webpack sass pug es6 boilerplate
 
