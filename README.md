@@ -69,3 +69,5 @@ new HtmlWebpackPlugin({
     template: './my-page.html',
 }),
 ```
+
+You can use PUG instead of html. Try it on branch `jade`
