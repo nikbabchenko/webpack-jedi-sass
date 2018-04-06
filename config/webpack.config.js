@@ -98,7 +98,8 @@ const config = {
                         {
                             loader: 'postcss-loader',
                             options: {
-                                config: { path: postcssConfig }
+                                config: { path: postcssConfig },
+                                sourceMap: isDev,
                             }
                         }
                     ],
@@ -113,16 +114,23 @@ const config = {
                             loader: 'css-loader',
                             options: {
                                 importLoaders: 1,
+                                sourceMap: isDev
                             },
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
-                                config: { path: postcssConfig }
+                                config: {
+                                    path: postcssConfig,
+                                },
+                                sourceMap: isDev ? 'inline' : false,
                             }
                         },
                         {
-                            loader: 'sass-loader'
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: isDev
+                            }
                         }
                     ],
                 })
